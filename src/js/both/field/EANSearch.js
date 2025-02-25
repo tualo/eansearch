@@ -3,6 +3,7 @@ Ext.define('Tualo.eansearch.data.field.GruppeEANSearch', {
     alias: [
         'data.field.tualo_eansearch_artikelnummer_gruppe'
     ],
+    
     convert: function (v,rec) {
 
         let doQuery = false,
