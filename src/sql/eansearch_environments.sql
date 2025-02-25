@@ -15,3 +15,24 @@ create table if not exists eansearch_environments (
     rate decimal(15, 5) not null,
     primary key (base_currency, target_currency, `date`)
 );
+
+insert ignore into custom_types (
+    id,
+    xtype_long_classic,
+    xtype_long_modern,
+    extendsxtype_classic,
+    extendsxtype_modern,
+    name,
+    vendor,
+    description
+)
+values (
+    'Tualo.eansearch.data.field.GruppeEANSearch',
+    'data.field.tualo_eansearch_artikelnummer_gruppe',
+    'data.field.tualo_eansearch_artikelnummer_gruppe',
+    'Ext.data.field.String',
+    'Ext.data.field.String',
+    'Tualo.eansearch.data.field.GruppeEANSearch',
+    'Tualo',
+    'Tualo.eansearch.data.field.GruppeEANSearch'
+);

@@ -1,5 +1,5 @@
 Ext.define('Tualo.eansearch.data.field.GruppeEANSearch', {
-    extend: 'Ext.data.field.Number',
+    extend: 'Ext.data.field.String',
     alias: [
         'data.field.tualo_eansearch_artikelnummer_gruppe'
     ],
@@ -17,7 +17,7 @@ Ext.define('Tualo.eansearch.data.field.GruppeEANSearch', {
     },
 
     guery: async function(v,rec){
-        let resData = await fetch('./report/price',{
+        let resData = await fetch('./eansearch/'+v,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
