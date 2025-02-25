@@ -18,11 +18,11 @@ Ext.define('Tualo.eansearch.data.field.GruppeEANSearch', {
 
     guery: async function(v,rec){
         let resData = await fetch('./eansearch/'+v,{
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(params)
+            // body: JSON.stringify(params)
         });
         let data = await resData.json();
         if (data.success && data.data && data.data.length>0){
