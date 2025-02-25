@@ -17,6 +17,7 @@ Ext.define('Tualo.eansearch.data.field.GruppeEANSearch', {
     },
 
     guery: async function(v,rec){
+        
         let resData = await fetch('./eansearch/'+rec.get('artikelnummer'),{
             method: 'GET',
             headers: {
