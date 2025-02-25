@@ -4,11 +4,12 @@ Ext.define('Tualo.eansearch.data.field.GruppeEANSearch', {
         'data.field.tualo_eansearch_artikelnummer_gruppe'
     ],
     convert: function (v,rec) {
-        console.log('tualo_eansearch_gruppe',rec.get('gruppe'),this._queriedArticles);
+
         let doQuery = false,
             map = rec.getFieldsMap();
+
         if (!Ext.isEmpty(rec.get('artikelnummer'))){
-            if (rec.get('gruppe')!=rec.get('_ean_queried_gruppe')) doQuery=true;
+            if ((typeof rec.get('gruppe')=='undefined') || ( Ext.isEmpty(rec.get('gruppe')) )) doQuery=true;
         }
         if (doQuery) {
             this.guery(v,rec);
@@ -17,7 +18,7 @@ Ext.define('Tualo.eansearch.data.field.GruppeEANSearch', {
     },
 
     guery: async function(v,rec){
-        
+
         let resData = await fetch('./eansearch/'+rec.get('artikelnummer'),{
             method: 'GET',
             headers: {
